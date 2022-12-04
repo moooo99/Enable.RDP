@@ -29,7 +29,6 @@ if (($RDPFirewallRule.Values) -contains "False")
 
 if (($Regvalue) -contains "1"){
 
-    #New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -PropertyType DWORD -Value 0 -Force | Out-Null
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0 -Force | Out-Null
 
 } 
