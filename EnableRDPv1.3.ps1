@@ -1,4 +1,3 @@
-#https://devblogs.microsoft.com/scripting/easily-create-a-powershell-hash-table/
 $TSName = 'fDenyTSConnections'
 $TSKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server'
 $Regvalue =@(Get-ItemPropertyValue -Path $TSKey -Name "$TSName")
