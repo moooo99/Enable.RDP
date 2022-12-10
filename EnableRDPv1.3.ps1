@@ -1,5 +1,6 @@
 $TSName = 'fDenyTSConnections'
 $TSKey = 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server'
+$Regvalue =@($null)
 $Regvalue =@(Get-ItemPropertyValue -Path $TSKey -Name "$TSName")
 
 $RDPFirewallRule = $null
@@ -20,9 +21,9 @@ ForEach ($Rule in $RDPRules)
 
 if (($RDPFirewallRule.Values) -contains "False")
 {
-    set-NetFirewallRule -DisplayName "Remote Desktop - Shadow (TCP-In)" -Enabled True
-    set-NetFirewallRule -DisplayName "Remote Desktop - User Mode (TCP-In)" -Enabled True
-    set-NetFirewallRule -DisplayName "Remote Desktop - User Mode (UDP-In)" -Enabled True
+    Set-NetFirewallRule -DisplayName "Remote Desktop - Shadow (TCP-In)" -Enabled True
+    Set-NetFirewallRule -DisplayName "Remote Desktop - User Mode (TCP-In)" -Enabled True
+    Set-NetFirewallRule -DisplayName "Remote Desktop - User Mode (UDP-In)" -Enabled True
 }
 
 
